@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import ProductCard from '../ProductCard/ProductCard';
-import produtosData from '../../data/data.json';
-import { produtosAdicionados } from '../Caixa/Caixa';
-import Metodo from '../Metodo/Metodo';
+import ProductCard from './ProductCard';
+import produtosData from '../data/data.json';
+import { produtosAdicionados } from './Caixa';
+import Metodo from './Metodo';
 import { useNavigation } from '@react-navigation/native';
 
 let chaveAtivacao = [];

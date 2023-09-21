@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import produtosData from '../../data/data.json';
+import produtosData from '../data/data.json';
 
 export const produtosAdicionados = [];
 

@@ -1,20 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Metodo from './components/Metodo';
+import Carrinho from './components/Carrinho';
+import Caixa from './components/Caixa';
+import OpenCart from './components/OpenCart';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <Tab.Navigator>
+        <Tab.Screen name="Caixa" component={Caixa} />
+        <Tab.Screen name="Carrinho" component={Carrinho} />
+      </Tab.Navigator>
+      {/* <OpenCart /> */}
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function AppNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="App" component={App} screenOptions={{ headerShown: true }} />
+    </Stack.Navigator>
+  );
+}
+
+export default function Main() {
+  return (
+    <NavigationContainer>
+      <App />
+    </NavigationContainer>
+  );
+}
