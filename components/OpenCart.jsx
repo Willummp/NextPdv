@@ -29,10 +29,32 @@ function OpenCart() {
 const styles = StyleSheet.create({
     open_cart: {
         // Estilos para o contêiner do botão do carrinho.
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '10vh', // Use a percentage or other valid unit in React Native.
+        borderRadius: 5,
     },
     open_cart_btn: {
         // Estilos para o botão do carrinho.
+        textDecorationLine: 'none',
+        color: '#332E2E',
+        lineHeight: 2.3,
+        fontWeight: '800',
+        backgroundColor: '#A98467',
+        padding: 5,
+        height: '4vh', // Use a percentage or other valid unit in React Native.
+        width: '50vw', // Use a percentage or other valid unit in React Native.
+        borderRadius: 100,
+        borderWidth: 0, // Use borderWidth instead of border:none in React Native.
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
 });
 
+// O close não consegui pôr.
 export default OpenCart;

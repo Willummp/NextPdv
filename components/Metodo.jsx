@@ -39,14 +39,48 @@ const styles = StyleSheet.create({
         // Estilos para o contêiner do overlay.
     },
     method_window: {
-        // Estilos para a janela de seleção do método de pagamento.
+        display: 'flex',
+        position: 'absolute',
+        flexDirection: 'column',
+        width: '100%',
+        paddingTop: 20,
+        borderRadius: 10,
+        backgroundColor: '#A98467',
+        alignItems: 'center',
+        left: 0,
+        zIndex: 2,
+        height: '82%', // Use a percentage or other valid unit in React Native.
+        maxHeight: '88%', // Use a percentage or other valid unit in React Native.
+        bottom: 0,
     },
     method_title: {
-        // Estilos para o título do método de pagamento.
+        fontSize: 32,
+        fontWeight: '800',
+        margin: 0,
+        marginBottom: 20,
+        color: '#332E2E',
     },
     method_payment: {
-        // Estilos para as opções de pagamento.
+        marginTop: 5,
+        backgroundColor: '#332E2E',
+        padding: 10,
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        height: 32,
+        fontWeight: '800',
+        fontSize: 24,
+        color: 'white',
+        textAlign: 'right',
+        marginBottom: 5,
+        borderRadius: 100,
+        borderWidth: 0, // Use borderWidth instead of border:none in React Native.
+        lineHeight: 1.2,
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
 });
+
 
 export default Metodo;

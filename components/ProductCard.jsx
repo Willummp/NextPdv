@@ -29,25 +29,77 @@ function ProductCard({ product, onDelete }) {
 
 const styles = StyleSheet.create({
     card: {
-        // Estilos para o contêiner do cartão.
+        backgroundColor: '#332E2E',
+        color: '#FFF9F4',
+        borderRadius: 8,
+        padding: '4%',
+        marginBottom: 16,
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        shadowColor: 'rgba(0, 0, 0, 0.5)',
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        alignSelf: 'center',
     },
     productName: {
-        // Estilos para o nome do produto.
+        fontSize: 16, // Font size is represented in pixels in React Native.
+        fontWeight: 'bold',
+        lineHeight: 16, // Use a number value for lineHeight in React Native.
+        marginBottom: 8,
     },
     deleteButton: {
-        // Estilos para o botão de exclusão.
-    },
-    pricePerKg: {
-        // Estilos para o preço por kg ou unidade.
+        backgroundColor: '#ce5858',
+        width: '10%', // Use a percentage or other valid unit in React Native.
+        height: '5%', // Use a percentage or other valid unit in React Native.
+        color: 'white',
+        borderRadius: 8,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+        cursor: 'pointer',
+        position: 'absolute',
+        top: 8,
+        right: 8,
     },
     info: {
-        // Estilos para o contêiner de informações.
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    pricePerKg: {
+        display: 'flex',
+        fontSize: 12, // Font size is represented in pixels in React Native.
+        fontWeight: 'bold',
+        color: '#d49764',
+        textAlign: 'right',
+        marginTop: '6%', // Use a percentage or other valid unit in React Native.
+        justifyContent: 'flex-end',
+    },
+    pricePerUn: {
+        display: 'flex',
+        fontSize: 16, // Font size is represented in pixels in React Native.
+        fontWeight: 'bold',
+        color: '#d49764',
+        textAlign: 'right',
+        marginTop: '6%', // Use a percentage or other valid unit in React Native.
+        justifyContent: 'flex-end',
     },
     quantity: {
-        // Estilos para a quantidade.
+        fontSize: 14, // Font size is represented in pixels in React Native.
+        color: '#dfdfdf',
+        fontWeight: '800',
+        textAlign: 'left',
+        marginTop: 4,
+        justifyContent: 'flex-end',
     },
     price: {
-        // Estilos para o preço.
+        fontSize: 18, // Font size is represented in pixels in React Native.
+        color: '#FFF9F4',
+        fontWeight: 'bold',
+        textAlign: 'right',
     },
 });
 

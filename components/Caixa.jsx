@@ -54,9 +54,6 @@ export default function EscreverCodigo() {
 
     /* Um FOR para criar os numeros que quer nas Teclas, para mais tarde, fazer um map */
     for (let i = 0; i <= 9; i++) {
-        if (i === 0) {
-            continue; // Pula a iteração se i for igual a 0.
-        }
         numeros.push(`${i}`);
     }
     numeros.push('0');
@@ -119,7 +116,7 @@ export default function EscreverCodigo() {
                         style={styles.teclas}
                         funcao={() => handleDigitarNumeros(item)}
                         numero={item}
-                        key={item}
+                        key={`tecla_${item}`} // Append a unique identifier to the key
                     />
                 ))}
                 <Teclas
@@ -139,36 +136,151 @@ export default function EscreverCodigo() {
 
 const styles = StyleSheet.create({
     caixa: {
-        // Estilos para o contêiner externo.
+        display: 'flex',
+        position: 'absolute',
+        flexDirection: 'column',
+        width: '100%',
+        paddingTop: 20,
+        borderRadius: 10,
+        backgroundColor: '#A98467',
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: -4,
+        },
+        shadowRadius: 4,
+        alignItems: 'center',
+        height: '82%', // Use a percentage or other valid unit in React Native.
+        maxHeight: '88%', // Use a percentage or other valid unit in React Native.
+        bottom: 0,
     },
     inputbox: {
-        // Estilos para o contêiner dos inputs.
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        alignItems: 'center',
+        height: '20%', // Use a percentage or other valid unit in React Native.
     },
     caixa_resul: {
-        // Estilos para o input de resultado.
+        backgroundColor: '#332E2E',
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        height: 48,
+        borderRadius: 100,
+        marginBottom: 5,
+        textShadowColor: 'rgba(0, 0, 0, 0.25)',
+        textShadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        textAlign: 'center',
+        fontWeight: '600',
+        fontSize: 24,
+        color: 'white',
     },
     caixa__codigo_value: {
-        // Estilos para o input de código.
-    },
-    borda_grossa: {
-        // Estilos para a borda grossa.
+        display: 'flex',
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        marginBottom: 5,
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        backgroundColor: '#332E2E',
+        height: 48,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontWeight: '800',
+        fontSize: 24,
+        color: 'white',
     },
     caixa__quant: {
-        // Estilos para o contêiner da quantidade.
+        fontWeight: '800',
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        textAlign: 'center',
+        color: '#332E2E',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     caixa__quant_value: {
-        // Estilos para o input de quantidade.
+        display: 'flex',
+        marginBottom: 5,
+        backgroundColor: '#332E2E',
+        width: '40%', // Use a percentage or other valid unit in React Native.
+        height: '4vh', // Use a percentage or other valid unit in React Native.
+        borderRadius: 100,
+        textAlign: 'center',
+        fontWeight: '800',
+        fontSize: 18,
+        color: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
     teclado: {
-        // Estilos para o contêiner do teclado.
+        display: 'grid',
+        position: 'absolute',
+        bottom: 0,
+        width: '90%', // Use a percentage or other valid unit in React Native.
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: 6,
     },
     teclas: {
-        // Estilos para as teclas do teclado.
+        height: '10.5vh',
+        width: '24%', // Use a percentage or other valid unit in React Native.
+        maxWidth: 100,
+        justifySelf: 'center',
+        borderRadius: 10,
+        backgroundColor: '#332E2E',
+        color: 'white',
+        fontSize: 24,
+        fontWeight: '800',
+        border: 'none',
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
     teclas__apagar: {
-        // Estilos para a tecla de apagar.
+        height: '10.5vh',
+        gridColumn: 'span 2',
+        backgroundColor: '#733333',
+        color: 'white',
+        fontSize: 24,
+        fontWeight: '800',
+        border: 'none',
+        borderRadius: 100,
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
     teclas__confirmar: {
-        // Estilos para a tecla de confirmar.
+        height: '10.5vh',
+        gridColumn: 'span 3',
+        backgroundColor: '#424B6A',
+        borderRadius: 100,
+        color: 'white',
+        fontSize: 24,
+        fontWeight: '800',
+        width: '100%',
+        border: 'none',
+        marginBottom: '1vh', // Use a percentage or other valid unit in React Native.
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+    },
+    borda_grossa: {
+        border: '1px solid #D0B6A2',
     },
 });

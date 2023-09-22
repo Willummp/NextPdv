@@ -102,29 +102,80 @@ function Carrinho() {
 
 const styles = StyleSheet.create({
     container_cart: {
-        // Estilos para o contêiner externo.
+        display: 'flex',
+        position: 'absolute',
+        flexDirection: 'column',
+        width: '100%',
+        paddingTop: 20,
+        borderRadius: 10,
+        backgroundColor: '#A98467',
+        alignItems: 'center',
+        height: '82%', // Use a percentage or other valid unit in React Native.
+        bottom: 0,
+        left: 0,
+        zIndex: 2,
     },
-    test: {
-        // Estilos para o contêiner de lista de produtos.
+    hidden: {
+        display: 'none',
     },
     menu_cart: {
-        // Estilos para o contêiner do menu do carrinho.
+        display: 'flex',
+        position: 'absolute',
+        bottom: 0,
+        flexDirection: 'column',
+        height: '20%', // Use a percentage or other valid unit in React Native.
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        width: '100%',
+    },
+    test: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        scrollBehavior: 'smooth',
+        overflow: 'auto',
+        width: '90vw',
+        height: '60vh', // Use a percentage or other valid unit in React Native.
     },
     menu_total: {
-        // Estilos para o contêiner do total.
-    },
-    menu_total_rs: {
-        // Estilos para o texto do total.
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '92%',
+        height: '8vh', // Use a percentage or other valid unit in React Native.
+        backgroundColor: '#D0B6A2',
+        borderRadius: 100,
+        fontWeight: '800',
+        fontSize: 32,
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
     menu_confirm: {
-        // Estilos para o contêiner de botões de confirmação.
+        display: 'flex',
+        justifyContent: 'space-between',
+        width: '92%',
+        height: '8vh', // Use a percentage or other valid unit in React Native.
+        border: 'none',
     },
-    menu_confirm_metodo: {
-        // Estilos para o botão do método de pagamento.
-    },
-    menu_confirm_finalizar: {
-        // Estilos para o botão de finalização.
+    btn_cart: {
+        backgroundColor: '#332E2E',
+        fontFamily: 'Open Sans',
+        fontSize: 20,
+        color: '#FFF9F4',
+        width: '48%', // Use a percentage or other valid unit in React Native.
+        fontWeight: '800',
+        borderRadius: 12,
+        border: 'none',
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
 });
 
+// Não consegui por o webkit
 export default Carrinho;
