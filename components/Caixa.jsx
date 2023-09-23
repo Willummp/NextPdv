@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import produtosData from '../data/data.json';
+import { useNavigation } from '@react-navigation/native';
 
 export const produtosAdicionados = [];
 
@@ -28,6 +29,9 @@ export default function EscreverCodigo() {
     const [timerAdic, setTimerAdic] = useState(false);
     const [posfixo, setPosfixo] = useState('');
     const numeros = [];
+
+    const navigation = useNavigation();
+
 
     const prodNaoEncontrado = 'Produto não encontrado...';
     const buscProd = 'Busque seu produto';
@@ -88,53 +92,82 @@ export default function EscreverCodigo() {
         }
     }
 
+    function handleNavegarParaCarrinho() {
+        navigation.navigate('Carrinho');
+    }
+
     return (
-        <View style={styles.caixa}>
-            <View style={styles.inputbox}>
-                <TextInput
-                    style={styles.caixa_resul}
-                    value={produto}
-                    editable={false}
-                />
-                <InputsDiversos
-                    onClick={() => setSelecionado(false)}
-                    style={[styles.caixa__codigo_value, selecionado ? {} : styles.borda_grossa]}
-                    value={codigo}
-                />
-                <View style={styles.caixa__quant}>
-                    <Text style={{ fontSize: 22 }}>Quantidade</Text>
+        <View style={styles.fundo}>
+            <TouchableOpacity style={styles.botaoCarrinho} onPress={handleNavegarParaCarrinho}>
+                <Text>Ir para o Carrinho</Text>
+            </TouchableOpacity>
+
+
+            <View style={styles.caixa}>
+
+                <View style={styles.inputbox}>
+                    <TextInput
+                        style={styles.caixa_resul}
+                        value={produto}
+                        editable={false}
+                    />
                     <InputsDiversos
-                        onClick={() => setSelecionado(true)}
-                        style={[styles.caixa__quant_value, selecionado ? styles.borda_grossa : {}]}
-                        value={quant + ' ' + posfixo}
+                        onClick={() => setSelecionado(false)}
+                        style={[styles.caixa__codigo_value, selecionado ? {} : styles.borda_grossa]}
+                        value={codigo}
                     />
+                    <View style={styles.caixa__quant}>
+                        <Text style={{ fontSize: 22 }}>Quantidade</Text>
+                        <InputsDiversos
+                            onClick={() => setSelecionado(true)}
+                            style={[styles.caixa__quant_value, selecionado ? styles.borda_grossa : {}]}
+                            value={quant + ' ' + posfixo}
+                        />
+                    </View>
                 </View>
-            </View>
-            <View style={styles.teclado}>
-                {numeros.map(item => (
+                <View style={styles.teclado}>
+                    {numeros.map(item => (
+                        <Teclas
+                            style={styles.teclas}
+                            funcao={() => handleDigitarNumeros(item)}
+                            numero={item}
+                            key={`tecla_${item}`} // Append a unique identifier to the key
+                        />
+                    ))}
                     <Teclas
-                        style={styles.teclas}
-                        funcao={() => handleDigitarNumeros(item)}
-                        numero={item}
-                        key={`tecla_${item}`} // Append a unique identifier to the key
+                        style={styles.teclas__apagar}
+                        funcao={handleApagarNumeros}
+                        numero={'Apagar'}
                     />
-                ))}
-                <Teclas
-                    style={styles.teclas__apagar}
-                    funcao={handleApagarNumeros}
-                    numero={'Apagar'}
-                />
-                <Teclas
-                    style={styles.teclas__confirmar}
-                    funcao={handleConfirmarNumeros}
-                    numero={'Confirmar'}
-                />
+                    <Teclas
+                        style={styles.teclas__confirmar}
+                        funcao={handleConfirmarNumeros}
+                        numero={'Confirmar'}
+                    />
+
+                </View>
             </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    fundo: {
+        backgroundColor: "#725844",
+        height: "100vh"
+    },
+    botaoCarrinho: {
+        backgroundColor: '#D0B6A2',
+        width: '60vw',
+        height: "5vh",
+        alignSelf: "center",
+        borderRadius: 100,
+        padding: 10,
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontWeight: '800',
+    },
     caixa: {
         display: 'flex',
         position: 'absolute',
@@ -150,8 +183,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 4,
         alignItems: 'center',
-        height: '82%', // Use a percentage or other valid unit in React Native.
-        maxHeight: '88%', // Use a percentage or other valid unit in React Native.
+        height: '90vh', // Use a percentage or other valid unit in React Native.
         bottom: 0,
     },
     inputbox: {
@@ -196,9 +228,8 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     caixa__quant: {
-        fontWeight: '800',
-        width: '90%', // Use a percentage or other valid unit in React Native.
-        textAlign: 'center',
+        flexDirection: 'row',
+        width: '90%',
         color: '#332E2E',
         display: 'flex',
         justifyContent: 'space-between',
@@ -233,13 +264,13 @@ const styles = StyleSheet.create({
     },
     teclas: {
         height: '10.5vh',
-        width: '24%', // Use a percentage or other valid unit in React Native.
+        width: '24vw', // Use a percentage or other valid unit in React Native.
         maxWidth: 100,
         justifySelf: 'center',
         borderRadius: 10,
         backgroundColor: '#332E2E',
-        color: 'white',
-        fontSize: 24,
+        color: '#fff',
+        fontSize: 40,
         fontWeight: '800',
         border: 'none',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
@@ -269,7 +300,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#424B6A',
         borderRadius: 100,
         color: 'white',
-        fontSize: 24,
+        font:'24px',
         fontWeight: '800',
         width: '100%',
         border: 'none',
@@ -282,5 +313,5 @@ const styles = StyleSheet.create({
     },
     borda_grossa: {
         border: '1px solid #D0B6A2',
-    },
+    }
 });
