@@ -33,34 +33,46 @@ function MenuCarrinho() {
         setMostrarMetodo(false);
     };
 
-    return (
-        <View style={styles.menu_cart}>
-            <View style={styles.menu_total}>
-                <Text style={styles.menu_total_rs}>TOTAL: R$ {valorTotal}</Text>
-            </View>
-            <View style={styles.menu_confirm}>
-                <TouchableOpacity
-                    style={styles.menu_confirm_metodo}
-                    id='btn_cart'
-                    onPress={handleBotaoClick}>
-                    <Text>
-                        {selectedMethod ? `${selectedMethod}` : 'METODO'}
-                    </Text>
-                </TouchableOpacity>
+    
 
-                {mostrarMetodo && <Metodo onSelectMethod={handleMethodSelect} />}
-                <TouchableOpacity
-                    style={styles.menu_confirm_finalizar}
-                    id="btn_cart">
-                    <Text>FINALIZAR</Text>
-                </TouchableOpacity>
+    return (
+       
+
+            <View style={styles.menu_cart}>
+                <View style={styles.menu_total}>
+                    <Text style={styles.menu_total_rs}>TOTAL: R$ {valorTotal}</Text>
+                </View>
+                <View style={styles.menu_confirm}>
+                    <TouchableOpacity
+                        style={styles.menu_confirm_metodo}
+                        id='btn_cart'
+                        onPress={handleBotaoClick}>
+                        <Text>
+                            {selectedMethod ? `${selectedMethod}` : 'METODO'}
+                        </Text>
+                    </TouchableOpacity>
+
+                    {mostrarMetodo && <Metodo onSelectMethod={handleMethodSelect} />}
+                    <TouchableOpacity
+                        style={styles.menu_confirm_finalizar}
+                        id="btn_cart">
+                        <Text>FINALIZAR</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
+   
+
     );
 }
 
 function Carrinho() {
     const [elementos, setElementos] = useState(produtosAdicionados);
+    const navigation = useNavigation();
+
+    const handleNavegarParaCaixa = () =>{
+        navigation.navigate('Caixa')
+    }
+
 
     const removerElemento = (index) => {
         const novosElementos = [...elementos];
@@ -90,17 +102,41 @@ function Carrinho() {
         novoMap();
     }, [elementos]);
 
+  
     return (
+        <View style={styles.fundo}>
+            <TouchableOpacity style={styles.botaoCarrinho} onPress={handleNavegarParaCaixa}>
+                <Text>Ir para o Carrinho</Text>
+            </TouchableOpacity>
+
+
         <View style={styles.container_cart}>
             <View style={styles.test}>{novoMap()}</View>
 
             <MenuCarrinho />
             {/* <TouchableOpacity onPress={limparLista}><Text>Limpar Carrinho</Text></TouchableOpacity> */}
         </View>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
+    fundo: {
+        backgroundColor: "#725844",
+        height: "100vh"
+    },
+    botaoCarrinho: {
+        backgroundColor: '#D0B6A2',
+        width: '60vw',
+        height: "5vh",
+        alignSelf: "center",
+        borderRadius: 100,
+        padding: 10,
+        marginTop: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontWeight: '800',
+    },
     container_cart: {
         display: 'flex',
         position: 'absolute',
@@ -109,11 +145,15 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         borderRadius: 10,
         backgroundColor: '#A98467',
+        shadowColor: 'rgba(0, 0, 0, 0.25)',
+        shadowOffset: {
+            width: 0,
+            height: -4,
+        },
+        shadowRadius: 4,
         alignItems: 'center',
-        height: '82%', // Use a percentage or other valid unit in React Native.
+        height: '90vh', // Use a percentage or other valid unit in React Native.
         bottom: 0,
-        left: 0,
-        zIndex: 2,
     },
     hidden: {
         display: 'none',
