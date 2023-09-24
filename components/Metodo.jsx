@@ -36,9 +36,6 @@ const Metodo = ({ onSelectMethod }) => {
 
 const styles = StyleSheet.create({
     method_overlay: {
-        margin: 0,
-    },
-    method_window: {
         display: 'flex',
         position: 'absolute',
         flexDirection: 'column',
@@ -50,8 +47,11 @@ const styles = StyleSheet.create({
         left: 0,
         bottom: 0,
         zIndex: 2,
-        height: '82vh', 
-        maxHeight: '82vh', 
+        height: '88vh', 
+    },
+    method_window: {
+   
+        
     },
     method_title: {
         fontSize: 32,
