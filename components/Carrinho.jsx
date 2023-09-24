@@ -240,7 +240,15 @@ const styles = StyleSheet.create({
             height: 4,
         },
     },
+   test: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        scrollBehavior: 'smooth',
+        overflow: 'auto',
+        width: '90vw',
+        height: '60vh', // Use a percentage or other valid unit in React Native.
+    },
 });
-
 // Não consegui por o webkit
 export default Carrinho;
