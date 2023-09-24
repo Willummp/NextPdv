@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Finalizar = ({ onSelectClose}) => {
+
+const Finalizar = () => {
     const navigation = useNavigation();
 
     const handleCloseClick = (close) => {

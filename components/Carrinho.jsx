@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 
 let chaveAtivacao = [];
 
-function MenuCarrinho() {
+function MenuCarrinho({ onFinalizar }) {
     const [mostrarMetodo, setMostrarMetodo] = useState(false);
     const [mostrarFinalizar, setMostrarFinalizar] = useState(false);
     const [valorTotal, setValorTotal] = useState(0);
@@ -19,6 +19,7 @@ function MenuCarrinho() {
 
     const handleBotaoFinalizar = () => {
         setMostrarFinalizar(true);
+        onFinalizar();
     };
 
     useEffect(() => {
@@ -38,8 +39,6 @@ function MenuCarrinho() {
 
 
     return (
-
-
         <View style={styles.menu_cart}>
             <View style={styles.menu_total}>
                 <Text style={styles.menu_total_rs}>TOTAL: R$ {valorTotal}</Text>
@@ -65,8 +64,6 @@ function MenuCarrinho() {
                 {mostrarFinalizar && <Finalizar/>}
             </View>
         </View>
-
-
     );
 }
 
@@ -78,6 +75,9 @@ function Carrinho() {
         navigation.navigate('Caixa')
     }
 
+    const limparProdutosAdicionados = () => {
+        produtosAdicionados.length = 0;
+    };
 
     const removerElemento = (index) => {
         const novosElementos = [...elementos];
@@ -113,13 +113,9 @@ function Carrinho() {
             <TouchableOpacity style={styles.botaoCarrinho} onPress={handleNavegarParaCaixa}>
                 <Text>Ir para o Teclado</Text>
             </TouchableOpacity>
-
-
             <View style={styles.container_cart}>
                 <View style={styles.test}>{novoMap()}</View>
-
-                <MenuCarrinho />
-                {/* <TouchableOpacity onPress={limparLista}><Text>Limpar Carrinho</Text></TouchableOpacity> */}
+                <MenuCarrinho onFinalizar={limparProdutosAdicionados} />
             </View>
         </View>
     );
