@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
         gridColumn: 'span 3',
         backgroundColor: '#424B6A',
         borderRadius: 100,
-        width: '100vw',
+        width: '100%',
         border: 'none',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
