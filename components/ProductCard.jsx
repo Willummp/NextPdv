@@ -16,7 +16,7 @@ function ProductCard({ product, onDelete }) {
     return (
         <View style={styles.card}>
             <Text style={styles.productName}>{product.nome}</Text>
-            <TouchableOpacity style={styles.deleteButton} onPress={() => onDelete(product.id)}></TouchableOpacity>
+            <TouchableOpacity style={styles.deleteButton} onPress={() => onDelete(product.id)}>🗑️</TouchableOpacity>
 
             <Text style={styles.pricePerKg}>Preço p/ {un ? '100g' : 'un'} R${product.preco}</Text>
             <View style={styles.info}>
@@ -32,29 +32,29 @@ const styles = StyleSheet.create({
         backgroundColor: '#332E2E',
         color: '#FFF9F4',
         borderRadius: 8,
-        padding: '4%',
         marginBottom: 16,
-        width: '90%', // Use a percentage or other valid unit in React Native.
-        shadowColor: 'rgba(0, 0, 0, 0.5)',
+        width: '90vw', // Use a percentage or other valid unit in React Native.
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
         shadowOffset: {
             width: 0,
-            height: 6,
+            height: 4,
         },
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
         alignSelf: 'center',
+        paddingBottom: 5
     },
     productName: {
-        fontSize: 16, // Font size is represented in pixels in React Native.
+        fontSize: 24, // Font size is represented in pixels in React Native.
         fontWeight: 'bold',
-        lineHeight: 16, // Use a number value for lineHeight in React Native.
+        marginLeft: 10,
         marginBottom: 8,
+        color: "#fff"
     },
     deleteButton: {
         backgroundColor: '#ce5858',
-        width: '10%', // Use a percentage or other valid unit in React Native.
-        height: '5%', // Use a percentage or other valid unit in React Native.
+       // Use a percentage or other valid unit in React Native.
         color: 'white',
         borderRadius: 8,
         paddingVertical: 4,
@@ -66,8 +66,11 @@ const styles = StyleSheet.create({
     },
     info: {
         display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        alignSelf: "center",
+        width: "95%"
     },
     pricePerKg: {
         display: 'flex',
@@ -77,6 +80,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         marginTop: '6%', // Use a percentage or other valid unit in React Native.
         justifyContent: 'flex-end',
+        marginRight: 10,
     },
     pricePerUn: {
         display: 'flex',
@@ -86,6 +90,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         marginTop: '6%', // Use a percentage or other valid unit in React Native.
         justifyContent: 'flex-end',
+
     },
     quantity: {
         fontSize: 14, // Font size is represented in pixels in React Native.
@@ -100,7 +105,9 @@ const styles = StyleSheet.create({
         color: '#FFF9F4',
         fontWeight: 'bold',
         textAlign: 'right',
+        color: "#fff"
     },
+  
 });
 
 export default ProductCard;
