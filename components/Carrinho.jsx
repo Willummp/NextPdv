@@ -33,34 +33,34 @@ function MenuCarrinho() {
         setMostrarMetodo(false);
     };
 
-    
+
 
     return (
-       
 
-            <View style={styles.menu_cart}>
-                <View style={styles.menu_total}>
-                    <Text style={styles.menu_total_rs}>TOTAL: R$ {valorTotal}</Text>
-                </View>
-                <View style={styles.menu_confirm}>
-                    <TouchableOpacity
-                        style={styles.menu_confirm_metodo}
-                        id='btn_cart'
-                        onPress={handleBotaoClick}>
-                        <Text>
-                            {selectedMethod ? `${selectedMethod}` : 'METODO'}
-                        </Text>
-                    </TouchableOpacity>
 
-                    {mostrarMetodo && <Metodo onSelectMethod={handleMethodSelect} />}
-                    <TouchableOpacity
-                        style={styles.menu_confirm_finalizar}
-                        id="btn_cart">
-                        <Text>FINALIZAR</Text>
-                    </TouchableOpacity>
-                </View>
+        <View style={styles.menu_cart}>
+            <View style={styles.menu_total}>
+                <Text style={styles.menu_total_rs}>TOTAL: R$ {valorTotal}</Text>
             </View>
-   
+            <View style={styles.menu_confirm}>
+                <TouchableOpacity
+                    style={styles.menu_confirm_metodo}
+                    id='btn_cart'
+                    onPress={handleBotaoClick}>
+                    <Text>
+                        {selectedMethod ? `${selectedMethod}` : 'METODO'}
+                    </Text>
+                </TouchableOpacity>
+
+                {mostrarMetodo && <Metodo onSelectMethod={handleMethodSelect} />}
+                <TouchableOpacity
+                    style={styles.menu_confirm_finalizar}
+                    id="btn_cart">
+                    <Text>FINALIZAR</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+
 
     );
 }
@@ -69,7 +69,7 @@ function Carrinho() {
     const [elementos, setElementos] = useState(produtosAdicionados);
     const navigation = useNavigation();
 
-    const handleNavegarParaCaixa = () =>{
+    const handleNavegarParaCaixa = () => {
         navigation.navigate('Caixa')
     }
 
@@ -102,20 +102,20 @@ function Carrinho() {
         novoMap();
     }, [elementos]);
 
-  
+
     return (
         <View style={styles.fundo}>
             <TouchableOpacity style={styles.botaoCarrinho} onPress={handleNavegarParaCaixa}>
-                <Text>Ir para o Carrinho</Text>
+                <Text>Ir para o Teclado</Text>
             </TouchableOpacity>
 
 
-        <View style={styles.container_cart}>
-            <View style={styles.test}>{novoMap()}</View>
+            <View style={styles.container_cart}>
+                <View style={styles.test}>{novoMap()}</View>
 
-            <MenuCarrinho />
-            {/* <TouchableOpacity onPress={limparLista}><Text>Limpar Carrinho</Text></TouchableOpacity> */}
-        </View>
+                <MenuCarrinho />
+                {/* <TouchableOpacity onPress={limparLista}><Text>Limpar Carrinho</Text></TouchableOpacity> */}
+            </View>
         </View>
     );
 }
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         alignItems: 'center',
         height: '90vh', // Use a percentage or other valid unit in React Native.
-        bottom: 0,
+        bottom: 0
     },
     hidden: {
         display: 'none',
@@ -167,21 +167,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         width: '100%',
-    },
-    test: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        scrollBehavior: 'smooth',
-        overflow: 'auto',
-        width: '90vw',
-        height: '60vh', // Use a percentage or other valid unit in React Native.
+
     },
     menu_total: {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        width: '92%',
+        width: '92vw',
         height: '8vh', // Use a percentage or other valid unit in React Native.
         backgroundColor: '#D0B6A2',
         borderRadius: 100,
@@ -195,17 +187,50 @@ const styles = StyleSheet.create({
     },
     menu_confirm: {
         display: 'flex',
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        width: '92%',
+        width: '92vw',
         height: '8vh', // Use a percentage or other valid unit in React Native.
         border: 'none',
+    },
+    menu_confirm_metodo:{
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: "48%",
+        height: '8vh', // Use a percentage or other valid unit in React Native.
+        backgroundColor: '#D0B6A2',
+        borderRadius: 100,
+        fontWeight: '800',
+        fontSize: 32,
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+    },
+    menu_confirm_finalizar:{
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: "45vw",
+        height: '8vh', // Use a percentage or other valid unit in React Native.
+        backgroundColor: '#D0B6A2',
+        borderRadius: 100,
+        fontWeight: '800',
+        fontSize: 32,
+        shadowColor: 'rgba(0, 0, 0, 0.2)',
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
     },
     btn_cart: {
         backgroundColor: '#332E2E',
         fontFamily: 'Open Sans',
         fontSize: 20,
         color: '#FFF9F4',
-        width: '48%', // Use a percentage or other valid unit in React Native.
+        width: '45vw', // Use a percentage or other valid unit in React Native.
         fontWeight: '800',
         borderRadius: 12,
         border: 'none',
