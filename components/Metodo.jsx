@@ -7,7 +7,7 @@ const Metodo = ({ onSelectMethod }) => {
 
     const handleMethodClick = (method) => {
         onSelectMethod(method);
-        navigation.navigate('Carrinho'); // Certifique-se de configurar corretamente as rotas de navegação.
+        navigation.navigate('Carrinho');
     };
 
     return (

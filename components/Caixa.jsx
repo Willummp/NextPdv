@@ -283,6 +283,9 @@ const styles = StyleSheet.create({
     teclas__apagar: {
         height: '10.5vh',
         gridColumn: 'span 2',
+        width: '55vw',
+        maxWidth: '234px',
+        justifySelf: 'center',
         backgroundColor: '#733333',
         borderRadius: 100,
         shadowColor: 'rgba(0, 0, 0, 0.25)',
@@ -298,7 +301,8 @@ const styles = StyleSheet.create({
         gridColumn: 'span 3',
         backgroundColor: '#424B6A',
         borderRadius: 100,
-        width: '100%',
+        width: '93%',
+        justifySelf: 'center',
         border: 'none',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {

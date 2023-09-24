@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import ProductCard from './ProductCard';
-import produtosData from '../data/data.json';
 import { produtosAdicionados } from './Caixa';
 import Metodo from './Metodo';
+import Finalizar from './Finalizar';
 import { useNavigation } from '@react-navigation/native';
 
 let chaveAtivacao = [];
 
 function MenuCarrinho() {
-    const navigation = useNavigation();
     const [mostrarMetodo, setMostrarMetodo] = useState(false);
+    const [mostrarFinalizar, setMostrarFinalizar] = useState(false);
     const [valorTotal, setValorTotal] = useState(0);
 
     const handleBotaoClick = () => {
         setMostrarMetodo(true);
-        navigation.navigate('Metodo'); // Certifique-se de configurar corretamente as rotas de navegação.
+    };
+
+    const handleBotaoFinalizar = () => {
+        setMostrarFinalizar(true);
     };
 
     useEffect(() => {
@@ -32,7 +35,6 @@ function MenuCarrinho() {
         setSelectedMethod(method);
         setMostrarMetodo(false);
     };
-
 
 
     return (
@@ -55,9 +57,12 @@ function MenuCarrinho() {
                 {mostrarMetodo && <Metodo onSelectMethod={handleMethodSelect} />}
                 <TouchableOpacity
                     style={styles.menu_confirm_finalizar}
-                    id="btn_cart">
+                    id="btn_cart"
+                    onPress={handleBotaoFinalizar}>
                     <Text>FINALIZAR</Text>
                 </TouchableOpacity>
+
+                {mostrarFinalizar && <Finalizar/>}
             </View>
         </View>
 
