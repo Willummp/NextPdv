@@ -17,17 +17,17 @@ const Metodo = ({ onSelectMethod }) => {
                 <TouchableOpacity
                     style={styles.method_payment}
                     onPress={() => handleMethodClick('CRÉDITO')}>
-                    <Text>CRÉDITO</Text>
+                    <Text style={styles.Text}>CRÉDITO</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.method_payment}
                     onPress={() => handleMethodClick('DÉBITO')}>
-                    <Text>DÉBITO</Text>
+                    <Text style={styles.Text}>DÉBITO</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.method_payment}
                     onPress={() => handleMethodClick('PIX')}>
-                    <Text>PIX</Text>
+                    <Text style={styles.Text}>PIX</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -36,7 +36,7 @@ const Metodo = ({ onSelectMethod }) => {
 
 const styles = StyleSheet.create({
     method_overlay: {
-        // Estilos para o contêiner do overlay.
+        margin: 0,
     },
     method_window: {
         display: 'flex',
@@ -48,38 +48,48 @@ const styles = StyleSheet.create({
         backgroundColor: '#A98467',
         alignItems: 'center',
         left: 0,
-        zIndex: 2,
-        height: '82%', // Use a percentage or other valid unit in React Native.
-        maxHeight: '88%', // Use a percentage or other valid unit in React Native.
         bottom: 0,
+        zIndex: 2,
+        height: '82vh', 
+        maxHeight: '82vh', 
     },
     method_title: {
         fontSize: 32,
         fontWeight: '800',
         margin: 0,
+        textAlign: 'center',
         marginBottom: 20,
         color: '#332E2E',
     },
     method_payment: {
+        display: 'flex',
         marginTop: 5,
         backgroundColor: '#332E2E',
         padding: 10,
-        width: '90%', // Use a percentage or other valid unit in React Native.
-        height: 32,
+        width: '90vw',
+        height: 60,
         fontWeight: '800',
         fontSize: 24,
-        color: 'white',
+        color: '#fff',
         textAlign: 'right',
         marginBottom: 5,
         borderRadius: 100,
-        borderWidth: 0, // Use borderWidth instead of border:none in React Native.
-        lineHeight: 1.2,
+        borderWidth: 0, 
+   
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
             width: 0,
             height: 4,
         },
     },
+    Text: {
+        color: "#fff",
+        justifyContent: "center",
+        alignSelf: "center",
+        lineHeight: "1.5",
+        fontWeight: 600,
+        fontSize: 24
+    }
 });
 
 
