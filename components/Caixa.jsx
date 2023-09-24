@@ -8,7 +8,7 @@ export const produtosAdicionados = [];
 function Teclas({ numero, funcao, style }) {
     return (
         <TouchableOpacity style={style} onPress={funcao}>
-            <Text>{numero}</Text>
+            <Text style={styles.textLight}>{numero}</Text>
         </TouchableOpacity>
     );
 }
@@ -16,7 +16,7 @@ function Teclas({ numero, funcao, style }) {
 function InputsDiversos({ onClick, value, style }) {
     return (
         <TouchableOpacity style={style} onPress={onClick}>
-            <Text>{value}</Text>
+            <Text style={styles.textLight}>{value}</Text>
         </TouchableOpacity>
     );
 }
@@ -57,10 +57,12 @@ export default function EscreverCodigo() {
     }, [codigo]);
 
     /* Um FOR para criar os numeros que quer nas Teclas, para mais tarde, fazer um map */
-    for (let i = 0; i <= 9; i++) {
+
+    for (let i = 1; i <= 9; i++) {
         numeros.push(`${i}`);
     }
     numeros.push('0');
+    
 
     /* Funções para alternar qual o input que será preenchido pelo usuário */
     function handleDigitarNumeros(item) {
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         position: 'absolute',
         flexDirection: 'column',
-        width: '100%',
+        width: '100vw',
         paddingTop: 20,
         borderRadius: 10,
         backgroundColor: '#A98467',
@@ -189,13 +191,14 @@ const styles = StyleSheet.create({
     inputbox: {
         display: 'flex',
         flexDirection: 'column',
-        width: '100%',
+        width: '100vw',
         alignItems: 'center',
-        height: '20%', // Use a percentage or other valid unit in React Native.
+        marginTop: 20,
+        height: '20vh',
     },
     caixa_resul: {
         backgroundColor: '#332E2E',
-        width: '90%', // Use a percentage or other valid unit in React Native.
+        width: '90vw',
         height: 48,
         borderRadius: 100,
         marginBottom: 5,
@@ -211,7 +214,7 @@ const styles = StyleSheet.create({
     },
     caixa__codigo_value: {
         display: 'flex',
-        width: '90%', // Use a percentage or other valid unit in React Native.
+        width: '90vw', 
         marginBottom: 5,
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
@@ -229,7 +232,7 @@ const styles = StyleSheet.create({
     },
     caixa__quant: {
         flexDirection: 'row',
-        width: '90%',
+        width: '90vw',
         color: '#332E2E',
         display: 'flex',
         justifyContent: 'space-between',
@@ -239,14 +242,11 @@ const styles = StyleSheet.create({
         display: 'flex',
         marginBottom: 5,
         backgroundColor: '#332E2E',
-        width: '40%', // Use a percentage or other valid unit in React Native.
-        height: '4vh', // Use a percentage or other valid unit in React Native.
+        width: '50vw',
+        height: '4vh', 
         borderRadius: 100,
-        textAlign: 'center',
-        fontWeight: '800',
-        fontSize: 18,
-        color: 'white',
         justifyContent: 'center',
+        marginTop: 10,
         alignItems: 'center',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
@@ -257,61 +257,70 @@ const styles = StyleSheet.create({
     teclado: {
         display: 'grid',
         position: 'absolute',
-        bottom: 0,
-        width: '90%', // Use a percentage or other valid unit in React Native.
+        bottom: 20,
+        width: '90%',
+        maxWidth: '400px', 
         gridTemplateColumns: 'repeat(3, 1fr)',
         gap: 6,
     },
     teclas: {
+        display: "flex",
         height: '10.5vh',
-        width: '24vw', // Use a percentage or other valid unit in React Native.
+        width: '24vw',
         maxWidth: 100,
         justifySelf: 'center',
         borderRadius: 10,
         backgroundColor: '#332E2E',
-        color: '#fff',
-        fontSize: 40,
-        fontWeight: '800',
         border: 'none',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
             width: 0,
             height: 4,
         },
+        justifyContent: "center",
+        alignItems: "center"
     },
     teclas__apagar: {
         height: '10.5vh',
         gridColumn: 'span 2',
         backgroundColor: '#733333',
-        color: 'white',
-        fontSize: 24,
-        fontWeight: '800',
-        border: 'none',
         borderRadius: 100,
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
             width: 0,
             height: 4,
         },
+        justifyContent: "center",
+        alignItems: "center"
     },
     teclas__confirmar: {
         height: '10.5vh',
         gridColumn: 'span 3',
         backgroundColor: '#424B6A',
         borderRadius: 100,
-        color: 'white',
-        font:'24px',
-        fontWeight: '800',
-        width: '100%',
+        width: '100vw',
         border: 'none',
-        marginBottom: '1vh', // Use a percentage or other valid unit in React Native.
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
             width: 0,
             height: 4,
         },
+        justifyContent: "center",
+        alignItems: "center"
     },
     borda_grossa: {
         border: '1px solid #D0B6A2',
-    }
+    },
+    textLight:{
+        color: '#fff',
+       
+        alignItems: "center",
+        fontSize:'24px',
+        fontWeight: '800',
+     
+    },
+    textDark:{
+        color: '#000',
+
+    },
 });
