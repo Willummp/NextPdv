@@ -16,7 +16,7 @@ function ProductCard({ product, onDelete }) {
     return (
         <View style={styles.card}>
             <Text style={styles.productName}>{product.nome}</Text>
-            <TouchableOpacity style={styles.deleteButton} onPress={() => onDelete(product.id)}>🗑️</TouchableOpacity>
+            <TouchableOpacity style={styles.deleteButton} onPress={() => onDelete(product.id)}><Text>🗑️</Text></TouchableOpacity>
 
             <Text style={styles.pricePerKg}>Preço p/ {un ? '100g' : 'un'} R${product.preco}</Text>
             <View style={styles.info}>
