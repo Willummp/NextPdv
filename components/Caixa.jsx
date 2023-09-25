@@ -161,11 +161,12 @@ const styles = StyleSheet.create({
     botaoCarrinho: {
         backgroundColor: '#D0B6A2',
         width: '60vw',
+        maxWidth: "200px",
         height: "5vh",
         alignSelf: "center",
         borderRadius: 100,
         padding: 10,
-        marginTop: 20,
+        marginTop: '2vh',
         justifyContent: 'center',
         alignItems: 'center',
         fontWeight: '800',
@@ -185,20 +186,21 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 4,
         alignItems: 'center',
-        height: '90vh', // Use a percentage or other valid unit in React Native.
+        height: '90vh', 
         bottom: 0,
     },
     inputbox: {
         display: 'flex',
         flexDirection: 'column',
-        width: '100vw',
+        width: '90vw',
+        maxWidth: "400px",
         alignItems: 'center',
         marginTop: 20,
         height: '20vh',
     },
     caixa_resul: {
         backgroundColor: '#332E2E',
-        width: '90vw',
+        width: '100%',
         height: 48,
         borderRadius: 100,
         marginBottom: 5,
@@ -214,7 +216,7 @@ const styles = StyleSheet.create({
     },
     caixa__codigo_value: {
         display: 'flex',
-        width: '90vw', 
+        width: '100%',
         marginBottom: 5,
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: {
@@ -232,7 +234,7 @@ const styles = StyleSheet.create({
     },
     caixa__quant: {
         flexDirection: 'row',
-        width: '90vw',
+        width: '100%',
         color: '#332E2E',
         display: 'flex',
         justifyContent: 'space-between',
@@ -242,7 +244,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         marginBottom: 5,
         backgroundColor: '#332E2E',
-        width: '50vw',
+        width: '50%',
         height: '4vh', 
         borderRadius: 100,
         justifyContent: 'center',
@@ -266,6 +268,7 @@ const styles = StyleSheet.create({
     teclas: {
         display: "flex",
         height: '10.5vh',
+        maxHeight:"100px",
         width: '24vw',
         maxWidth: 100,
         justifySelf: 'center',
@@ -277,7 +280,7 @@ const styles = StyleSheet.create({
             width: 0,
             height: 4,
         },
-        justifyContent: "center",
+        justifyContent: "space-around",
         alignItems: "center"
     },
     teclas__apagar: {
